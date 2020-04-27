@@ -1,14 +1,18 @@
 import streamlit as st
 import pandas as pd
 import pydeck as pdk
+from PIL import Image
 
 
 # main function
 def main():
     # get data
-    garifuna_df = pd.read_csv("garifuna_data.csv", index_col=0)
-    ghana_df = pd.read_csv("ghana_data.csv", index_col=0)
-    uyghur_df = pd.read_csv("uyghur_data.csv", index_col=0)
+    garifuna_df = pd.read_csv("garifuna_data.csv", index_col=0,
+                           usecols=['name', 'review_count', 'latitude', 'longitude'])
+    ghana_df = pd.read_csv("ghana_data.csv", index_col=0,
+                           usecols=['name', 'review_count', 'latitude', 'longitude'])
+    uyghur_df = pd.read_csv("uyghur_data.csv", index_col=0,
+                           usecols=['name', 'review_count', 'latitude', 'longitude'])
 
     # getting average values so that the map is centered
     latitude_sum = 0
@@ -22,35 +26,106 @@ def main():
     mid_longitude = longitude_sum / num_of_values
 
     # title
-    st.title("Welcome to my minority ethnic restaurants in NYC project")
-    st.write(f"mid lon = {mid_longitude}")
-    st.write(f"mid lat = {mid_latitude}")
+    st.title("Measuring Ethnic Neighborhoods in NYC Project")
 
-    # defining layers
-    initial_view = pdk.ViewState(
-        # map_style='mapbox://styles/mapbox/light-v9',
-        initial_view_state=pdk.ViewState(
-            latitude=mid_latitude,
-            longitude=mid_longitude,
-            zoom=11,
-            pitch=50,))
+    # add image that i found and put on medium for this project
+    image = Image.open('new_littles.jpeg')
+    st.image(image, use_column_width=True, caption="Stylized view of the new 'littles' in NYC")
+    # width=850
 
-    scatterplot = pdk.Layer(
-        'ScatterplotLayer',
-        data=garifuna_df,
+    # "This project arose from the question:
+    st.markdown("**How can you define an ethnic neighborhood?** "
+             "In this app, we'll attempt to answer this using the cases of three minority ethnic/national groups in "
+             "New York City: the _Garifuna_ (a native American group from Central America), the _Uyghurs_ "
+             "(a Turkic group from north-western China) and Ghanaian peoples. Click on the side bar to learn more.")
+             # "We'll approach this question from two different angles:"
+             # " 1) the immediately visible presence as shown by outwardly identity demonstrating symbols "
+             # "as shown by restaurants. The idea is, if there are many of these restaurants in a certain area, "
+             # "then that area is probably an ethnic neighborhood. "
+             # "2) the 'truer' measure of actual number of people from that group that live in a certain area. "
+             # "Despite the inaccuracies of the census data, the ACS will give the data for this approach. "
+             # "Together, these two approaches will give us a rough idea of what neighborhoods are"
+             # " dominated by these groups."
+
+    # checkboxes to show two approaches
+    # st.selectbox("Click on the approach you would like to learn more about:",
+    #              options=['Restaurant Approach', "Census Approach"])
+
+
+    st.sidebar.markdown("Click on the approach you would like to learn more about:")
+    if st.sidebar.checkbox("Restaurant Approach"):
+        st.sidebar.markdown("Restaurants, rightly or wrongly, are one of the main places an ethnic/national group can proudly "
+                 "show their identity. By scraping Yelp, I was able to get a list "
+                 "of restaurants in NYC that are connected to these groups. After a spot check to make sure the "
+                 "restaurants wholey represent that group (one dish out of 20 doesn't make the restaurant"
+                 "represent that group), we were left with a list of restaurants for that group. "
+                 "This measure is can be a proxy for 'visibility'.")
+
+    if st.sidebar.checkbox("Census Approach"):
+        st.sidebar.markdown("Ideally, the census will show us how many people truly live in a specified area. Unfortunately, "
+                 "there are multiple problems with this approach. For one, the group chosen on the census "
+                 "doesn't always match with the definitions of the groups here. For example, I chose 'Ghanaian peoples "
+                 "as a group here, but many would also consider themselves 'Ga', 'Fulani' or any of the other "
+                 "ethnic groups found in Ghana. Another problem concerns the collection of the data itself. "
+                 "Many people (understandably) worry about how that data will be used so there is likely significant "
+                 "undercounting for recent immigrant groups. Nevertheless, it helps give evidence to defining an "
+                 "ethnic neighborhood that restaurants may miss.")
+
+
+    # announcing map
+    st.subheader("Map of restaurants in NYC")
+    which_group = st.radio(label="Which group would you like to see on the map?",
+                                     options=['Ghanaian peoples', 'Uyghurs', "Garifuna"])
+    if which_group == 'Ghanaian peoples':
+        data = ghana_df
+    elif which_group == 'Uyghurs':
+        data = uyghur_df
+    elif which_group == "Garifuna":
+        data = garifuna_df
+
+    # layers
+    scatterplotlayer = pdk.Layer(
+                    'ScatterplotLayer',
+                    data=data,
+                    get_position=['longitude', 'latitude'],
+                    get_color='[200, 30, 0, 160]',
+                    get_radius=400,
+                )
+    initial_view_state = pdk.ViewState(
+                latitude=mid_latitude,
+                longitude=mid_longitude,
+                zoom=9,
+            )
+    heatmaplayer = pdk.Layer(
+        'HeatmapLayer',
+        data=data,
+        opacity=0.75,
         get_position=['longitude', 'latitude'],
-        get_color='[200, 30, 0, 160]',
-        get_radius=200)
+        threshold=0.05,
+        intensity=1.5
+    )
+
 
     # printing map
     st.pydeck_chart(
         pdk.Deck(
             map_style='mapbox://styles/mapbox/light-v9',
-            initial_view_state=initial_view,
-                        layers=[scatterplot]
-                    ))
+            initial_view_state=initial_view_state,
+            layers=[scatterplotlayer, heatmaplayer],
+        )
+    )
 
-    st.map(uyghur_df, zoom=12)
+    #learn more section
+    st.sidebar.subheader("If you would like to learn more about any of these groups, click on one of the options below")
+    st.sidebar.markdown("[Ghanaian peoples] (https://en.wikipedia.org/wiki/Ghanaian_people)")
+    st.sidebar.markdown("[Uyghurs] (https://en.wikipedia.org/wiki/Uyghurs)")
+    st.sidebar.markdown("[Garifuna] (https://en.wikipedia.org/wiki/Garifuna)")
+
+    st.sidebar.subheader("To learn more about the project itself, click on one of the blogs below")
+    st.sidebar.markdown("[Are Ethnic Restaurants in Ethnic Neighborhoods (Part 1)] "
+            "(https://medium.com/@gregfeliu/are-ethnic-restaurants-in-ethnic-neighborhoods-part-1-f0eccc394ff7)")
+    st.sidebar.markdown("[Are Ethnic Restaurants in Ethnic Neighborhoods (Part 2)]"
+            " (https://medium.com/@gregfeliu/are-ethnic-restaurants-in-ethnic-neighborhoods-part-2-ddbac417452a)")
 
 if __name__ == '__main__':
     main()

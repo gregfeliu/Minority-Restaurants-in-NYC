@@ -1,0 +1,15 @@
+,index,id,name,alises,review_count,rating,latitude,longitude,price,address,city,zip_code,state
+0,16,xbqj3dfKWNKrWQlGD8kOZQ,Xinjiang House,"['Halal', 'Food Court', 'Chinese']",13,5.0,40.7414872,-73.8827301,,8202 45th Ave,Elmhurst,11373,NY
+1,17,d_eInFpX-Ix9qxFFYAqqLA,Xinjiang BBQ Cart,"['Barbeque', 'Food Trucks', 'Asian Fusion']",331,4.5,40.758665,-73.82938399999998,$,41ST Ave,Flushing,11355,NY
+2,18,qHi_FA4zSEkFshXQ4Chc9A,Jiang Diner,"['Noodles', 'Chinese']",120,4.0,40.72741660000001,-73.9882713,$$,104 2nd Ave,New York,10003,NY
+3,19,i6RhqnCJ_oUfTu5LikGXUg,Dun Huang - East Village,"['Chinese', 'Barbeque', 'Noodles']",326,4.5,40.73081,-73.98568,$$,300 E 12th St,New York,10003,NY
+4,22,nznIq087BJUN1fLtPQ0Xww,Lagman House,"['Uzbek', 'Russian', 'Asian Fusion']",98,4.5,40.587559999999996,-73.95548000000002,$$,2612 E 14th St,Brooklyn,11235,NY
+5,25,P6O2I3PbON26-P9Jhb7Q1A,Young Xinjiang BBQ Cart,"['Barbeque', 'Chinese', 'Food Stands']",37,4.5,40.714269673846395,-73.9941427168956,$,Forsyth St & Division St,New York,10002,NY
+6,26,NebgteFykeM1gwiVgPcCHw,The Handpulled Noodle,"['Chinese', 'Noodles']",685,4.0,40.828384,-73.948674,$$,3600 Broadway,New York,10031,NY
+7,35,mUl0wtO7tPkBocuJqZ-7Dw,Dun Huang -  Grand Central,"['Chinese', 'Noodles']",162,4.5,40.74922,-73.97785,$$,320 Lexington Ave,New York,10016,NY
+8,40,L6TVtBT6kgAeWPg6cTiz5Q,Traditional Xinjiang BBQ Cart,['Street Vendors'],1,5.0,40.714228999999996,-73.9941696,$,Division Street And Forsyth St,New York,10002,NY
+9,54,acMfsR0hJiAoQkTJvKOTQA,Xin Jiang Prosperity Kebabs,['Street Vendors'],3,3.5,40.7142715,-73.99411009999999,$,Division St,New York,10002,NY
+10,64,zGqqbBEyD5J3sC-yZP6RrA,Xinjiang BBQ Cart,"['Food Stands', 'Barbeque', 'Chinese']",1,4.0,40.749309600000004,-73.8213213,,Kissena Blvd Juniper Ave,Queens,11355,NY
+11,66,4-hz17jhnNBsmOaev2Rr8A,Xinjiang BBQ Cart #2,"['Chinese', 'Barbeque', 'Food Stands']",22,4.5,40.76016282775,-73.830214959531,$,39th Ave & Main Street,Flushing,11354,NY
+12,68,GP1FzK0Fy10Elw1MeTB9zQ,BBQ Cart,['Food Trucks'],2,3.5,40.81718060000001,-73.95706940000002,$,115TH Broadway,New York,10027,NY
+13,69,B80HEWGEmCP36wKHof3hLA,Tarim Uyghur Food,['Asian Fusion'],5,3.0,40.75933,-73.82918000000002,,136-20 Roosevelt Ave,Queens,11354,NY
