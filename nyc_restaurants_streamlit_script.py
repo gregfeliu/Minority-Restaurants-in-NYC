@@ -52,7 +52,7 @@ def main():
     #              options=['Restaurant Approach', "Census Approach"])
 
 
-    st.sidebar.markdown("Click on the approach you would like to learn more about:")
+    st.sidebar.subheader("Click on the approach you would like to learn more about:")
     if st.sidebar.checkbox("Restaurant Approach"):
         st.sidebar.markdown("Restaurants, rightly or wrongly, are one of the main places an ethnic/national group can proudly "
                  "show their identity. By scraping Yelp, I was able to get a list "
@@ -102,7 +102,7 @@ def main():
         opacity=0.75,
         get_position=['longitude', 'latitude'],
         threshold=0.05,
-        intensity=1.5
+        intensity=0.8
     )
 
 
@@ -114,6 +114,12 @@ def main():
             layers=[scatterplotlayer, heatmaplayer],
         )
     )
+
+    # census section
+    st.subheader("Map using census data")
+
+
+
 
     #learn more section
     st.sidebar.subheader("If you would like to learn more about any of these groups, click on one of the options below")
