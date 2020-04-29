@@ -103,7 +103,7 @@ def main():
 
     # census section
     st.subheader("Map using census data")
-    census_image = Image.open('Ghanaians_in_nyc_plot.jpg')
+    census_image = Image.open('Ghanaians_in_nyc_plot_w_restaurants.jpg')
     st.image(census_image, use_column_width=True, caption="Distribution of Ghanaians in NYC")
 
     #learn more section
