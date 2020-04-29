@@ -38,19 +38,6 @@ def main():
              "In this app, we'll attempt to answer this using the cases of three minority ethnic/national groups in "
              "New York City: the _Garifuna_ (a native American group from Central America), the _Uyghurs_ "
              "(a Turkic group from north-western China) and Ghanaian peoples. Click on the side bar to learn more.")
-             # "We'll approach this question from two different angles:"
-             # " 1) the immediately visible presence as shown by outwardly identity demonstrating symbols "
-             # "as shown by restaurants. The idea is, if there are many of these restaurants in a certain area, "
-             # "then that area is probably an ethnic neighborhood. "
-             # "2) the 'truer' measure of actual number of people from that group that live in a certain area. "
-             # "Despite the inaccuracies of the census data, the ACS will give the data for this approach. "
-             # "Together, these two approaches will give us a rough idea of what neighborhoods are"
-             # " dominated by these groups."
-
-    # checkboxes to show two approaches
-    # st.selectbox("Click on the approach you would like to learn more about:",
-    #              options=['Restaurant Approach', "Census Approach"])
-
 
     st.sidebar.subheader("Click on the approach you would like to learn more about:")
     if st.sidebar.checkbox("Restaurant Approach"):
@@ -64,11 +51,11 @@ def main():
     if st.sidebar.checkbox("Census Approach"):
         st.sidebar.markdown("Ideally, the census will show us how many people truly live in a specified area. Unfortunately, "
                  "there are multiple problems with this approach. For one, the group chosen on the census "
-                 "doesn't always match with the definitions of the groups here. For example, I chose 'Ghanaian peoples "
+                 "doesn't always match with the definitions of the groups here. For example, I chose 'Ghanaian peoples' "
                  "as a group here, but many would also consider themselves 'Ga', 'Fulani' or any of the other "
                  "ethnic groups found in Ghana. Another problem concerns the collection of the data itself. "
                  "Many people (understandably) worry about how that data will be used so there is likely significant "
-                 "undercounting for recent immigrant groups. Nevertheless, it helps give evidence to defining an "
+                 "undercounting for recent immigrant groups. Nevertheless, it another approach to defining an "
                  "ethnic neighborhood that restaurants may miss.")
 
 
@@ -105,7 +92,6 @@ def main():
         intensity=0.8
     )
 
-
     # printing map
     st.pydeck_chart(
         pdk.Deck(
@@ -117,9 +103,8 @@ def main():
 
     # census section
     st.subheader("Map using census data")
-
-
-
+    census_image = Image.open('Ghanaians_in_nyc_plot.jpg')
+    st.image(census_image, use_column_width=True, caption="Distribution of Ghanaians in NYC")
 
     #learn more section
     st.sidebar.subheader("If you would like to learn more about any of these groups, click on one of the options below")
@@ -128,10 +113,11 @@ def main():
     st.sidebar.markdown("[Garifuna] (https://en.wikipedia.org/wiki/Garifuna)")
 
     st.sidebar.subheader("To learn more about the project itself, click on one of the blogs below")
-    st.sidebar.markdown("[Are Ethnic Restaurants in Ethnic Neighborhoods (Part 1)] "
-            "(https://medium.com/@gregfeliu/are-ethnic-restaurants-in-ethnic-neighborhoods-part-1-f0eccc394ff7)")
-    st.sidebar.markdown("[Are Ethnic Restaurants in Ethnic Neighborhoods (Part 2)]"
-            " (https://medium.com/@gregfeliu/are-ethnic-restaurants-in-ethnic-neighborhoods-part-2-ddbac417452a)")
+    st.sidebar.markdown('[Are Ethnic Restaurants in Ethnic Neighborhoods (Part 1)] '
+                        '(https://medium.com/@gregfeliu/are-ethnic-restaurants-in-ethnic-neighborhoods-part-1-f0eccc394ff7)')
+    st.sidebar.markdown('[Are Ethnic Restaurants in Ethnic Neighborhoods (Part 2)]'
+                        ' (https://medium.com/@gregfeliu/are-ethnic-restaurants-in-ethnic-neighborhoods-part-2-ddbac417452a)')
+
 
 if __name__ == '__main__':
     main()
