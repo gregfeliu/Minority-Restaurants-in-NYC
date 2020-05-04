@@ -3,7 +3,7 @@
 ## Description
 This project is addressing the question: __Are ethnic groups in the U.S. repsented in proportion to their actual population?__ More specifically, are ethnic neighborhoods represented equally in proportion to how many people of that group live there?
 
-To answer this question, **I examine the number of eateries per person for 3 groups in New York City: the _Garifuna_, _Uyghurs_, and the _Ghanaian peoples_**. To do this, I scraped yelp to find the number and location of eateries that represent each of these groups. Further, in the case of the Ghanaian peoples, I was able to correlate the true number of Ghanaians in districts in NYC with the number of eateries in those areas. 
+To answer this question, **I examine the number of eateries per person for 3 groups in New York City: the _Garifuna_, _Uyghurs_, and the _Ghanaian peoples_**. To do this, I scraped yelp to find the number and location of eateries that represent each of these groups. Further, in the case of the Ghanaian peoples, I was able to use the U.S. census to correlate the number of Ghanaians living in areas in NYC with the number of eateries in those areas. 
 
 ## Findings
 I found that Uyghurs were vastly over-represented in NYC compared to the other groups and that the Garifuna are vastly under-represented. At least in the case of the Ghanian peoples, it's clear that there is a high correlation between where Ghanaians live and where Ghanaian eateries are located.
