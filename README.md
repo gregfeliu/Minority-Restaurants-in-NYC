@@ -24,3 +24,12 @@ Here, you can view the data for each group yourself. There is also more informat
 - [Part 2](https://medium.com/@gregfeliu/are-ethnic-restaurants-in-ethnic-neighborhoods-part-2-ddbac417452a)
 
 Here, you can dive deeper into the motivations for this project and the larger discussion that it engages in.
+
+## Technologies Used
+- Jupyter Notebook
+- Python
+    - Matplotlib
+    - Pandas 
+    - Geopandas 
+    - Shapely 
+- Streamlit / Heroku
