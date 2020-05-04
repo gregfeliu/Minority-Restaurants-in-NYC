@@ -8,7 +8,7 @@ To answer this question, **I examine the number of eateries per person for 3 gro
 ## Findings
 I found that Uyghurs were vastly over-represented in NYC compared to the other groups and that the Garifuna are vastly under-represented. At least in the case of the Ghanian peoples, it's clear that there is a high correlation between where Ghanaians live and where Ghanaian eateries are located.
 
-![Map of Ghanaian Population in NYC with Location of Eateries](./pictures/Ghanaians_in_nyc_plot_w_restaurants.jpg)
+![Map of Ghanaian Population in NYC with Location of Eateries](./Ghanaians_in_nyc_plot_w_restaurants.jpg)
 
 The reasons for the differences in representation between the groups are complex and anecdotal, at this stage. Some suggestions for anyone digging deeper into this question include: year of main "wave" of arrivals, prior notability of the group in the U.S., whether the group has political representation in their home country, and similarity to already established groups. 
 
