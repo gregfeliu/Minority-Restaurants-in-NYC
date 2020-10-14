@@ -15,7 +15,7 @@ The reasons for the differences in representation between the groups are complex
 ## Further Reading
 This project is expanded on in the following formats:
 
-**[Application](https://minority-restaurants-in-nyc.herokuapp.com)** 
+**[Dashboard](https://minority-restaurants-in-nyc.herokuapp.com)** 
 
 Here, you can view the data for each group yourself. There is also more information about each of the groups and a heat map showing (hypothesized) hotspots for each group in NYC. 
 
